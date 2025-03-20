@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sunset social</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 25px;
+            line-height: 1.8;
+            background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+            color: #2f3542;
+        }
+        h1, h2 {
+            color: #1e3799;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 12px 25px;
+            margin: 8px 5px;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+        }
+        button:hover {
+            background: linear-gradient(to right, #feb47b, #ff7e5f);
+            transform: scale(1.05);
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #1e3799;
+            color: white;
+            border-radius: 8px;
+        }
+        footer a {
+            color: #00a8ff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+        #gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .photo {
+            width: 200px;
+            height: 200px;
+            background: #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>sunset social</h1>
+    <div class="section">
+        <h2>welcome</h2>
+        <p>Welcome to Sunset Social! Capture the magic of sunsets—share your photos, vote for favorites, and connect with sunset lovers worldwide.</p>
+    </div>
+
+    <div class="section">
+        <h2>photo gallery</h2>
+        <p>Check out recent sunset photos:</p>
+        <div id="gallery"></div>
+        <button onclick="addPhoto()">Add a Sunset Photo</button>
+    </div>
+
+    <div class="section">
+        <h2>sunset spotlight</h2>
+        <p>Vote for your favorite sunset of the week!</p>
+        <button onclick="vote()">Vote Now</button>
+        <p id="voteCount">Votes: 0</p>
+    </div>
+
+    <div class="section">
+        <h2>live chat</h2>
+        <p>Join the live chat during peak sunset hours!</p>
+        <button onclick="joinChat()">Join Chat</button>
+    </div>
+
+    <footer>
+        <p>Back to <a href="index.html">homepage</a></p>
+    </footer>
+
+    <script>
+        let votes = 0;
+        function addPhoto() {
+            const gallery = document.getElementById('gallery');
+            const photo = document.createElement('div');
+            photo.className = 'photo';
+            photo.innerText = 'Sunset #' + (gallery.children.length + 1);
+            gallery.appendChild(photo);
+        }
+        function vote() {
+            votes++;
+            document.getElementById('voteCount').innerText = `Votes: ${votes}`;
+        }
+        function joinChat() {
+            alert('Connecting to live chat... (Feature coming soon!)');
+        }
+    </script>
+</body>
+</html>
